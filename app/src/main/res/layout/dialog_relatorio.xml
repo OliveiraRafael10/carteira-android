@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CBC1E2">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtRelatorio"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:background="#ff6750a4"
+        android:text="Relatório"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Subtítulo -->
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Movimentação Total"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/txtRelatorio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Entradas -->
+    <TextView
+        android:id="@+id/txtEntradas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Entradas:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/txtTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"/>
+
+    <TextView
+        android:id="@+id/txtSaldoEntradas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtEntradas"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Saídas -->
+    <TextView
+        android:id="@+id/txtSaídas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saídas:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/txtEntradas"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp"/>
+
+    <TextView
+        android:id="@+id/txtSaldoSaidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtSaídas"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Saldo Atual -->
+    <TextView
+        android:id="@+id/txtSaldoAtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saldo Atual:"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/txtSaídas"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="32dp" />
+
+    <TextView
+        android:id="@+id/txtTotalSaldoAtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 0,00"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/txtSaldoAtual"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="32dp" />
+
+    <!-- Botão Novo Lançamento -->
+    <ImageButton
+        android:id="@+id/btnNovoLançamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#CBC1E2"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24"
+        app:layout_constraintTop_toBottomOf="@id/txtSaldoAtual"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="64dp" />
+
+    <!-- Botão Menu Inicial -->
+
+    <TextView
+        android:id="@+id/txtNovoLançamento"
+        android:layout_width="105dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="-12dp"
+        android:layout_marginTop="5dp"
+        android:text="Novo Lançamento"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/btnNovoLançamento"
+        app:layout_constraintTop_toBottomOf="@id/btnNovoLançamento" />
+
+    <ImageButton
+        android:id="@+id/btnMenuInicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#CBC1E2"
+        app:srcCompat="@drawable/baseline_home_24"
+        app:layout_constraintTop_toBottomOf="@id/txtSaldoAtual"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="64dp" />
+
+    <TextView
+        android:id="@+id/textMenuInicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu Inicial"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/btnMenuInicial"
+        app:layout_constraintEnd_toEndOf="@id/btnMenuInicial"
+        android:layout_marginTop="4dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
