@@ -37,28 +37,42 @@ public class LancamentoAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup viewGroup) {
-        View view = activity.getLayoutInflater().inflate(R.layout.lista_lancamentos, viewGroup, false);
-        Lancamento lancamento = lancamentos.get(position);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view;
 
-        TextView textViewLancamentoDescricaoLista = view.findViewById(R.id.textViewLancamentoDescricaoLista);
-        textViewLancamentoDescricaoLista.setText(lancamento.getDescricao());
-
-        TextView textViewLancamentoCategoriaLista = view.findViewById(R.id.textViewLancamentoCategoriaLista);
-        textViewLancamentoCategoriaLista.setText(lancamento.getCategoria());
-
-        TextView textViewLancamentoValorLista = view.findViewById(R.id.textViewLancamentoValorLista);
-        textViewLancamentoValorLista.setText(String.valueOf(lancamento.showValor()));
-
-        if (lancamento.getTipo().equals("Entrada")) {
-            textViewLancamentoValorLista.setTextColor(activity.getResources().getColor(R.color.blue));
-        } else if (lancamento.getTipo().equals("Saída")) {
-            textViewLancamentoValorLista.setTextColor(activity.getResources().getColor(R.color.red));
+        // Reutiliza a view existente, se possível
+        if (convertView != null) {
+            view = convertView;
+        } else {
+            view = activity.getLayoutInflater().inflate(R.layout.lista_lancamentos, parent, false);
         }
 
-        TextView textViewLancamentoDataLista = view.findViewById(R.id.textViewLancamentoDataLista);
-        textViewLancamentoDataLista.setText(lancamento.showDataFormatada());
+        // Recupera o lançamento
+        Lancamento lancamento = lancamentos.get(position);
+
+        // Preenche os campos da view
+        TextView descricao = view.findViewById(R.id.textViewLancamentoDescricaoLista);
+        descricao.setText(lancamento.getDescricao());
+
+        TextView categoria = view.findViewById(R.id.textViewLancamentoCategoriaLista);
+        categoria.setText(lancamento.getCategoria());
+
+        TextView valor = view.findViewById(R.id.textViewLancamentoValorLista);
+        valor.setText(String.valueOf(lancamento.showValor()));
+
+        // Muda a cor do valor baseado no tipo
+        String tipo = lancamento.getTipo().trim().toLowerCase();
+
+        if (tipo.equals("entrada")) {
+            valor.setTextColor(activity.getResources().getColor(R.color.green));
+        } else if (tipo.equals("saída")) {
+            valor.setTextColor(activity.getResources().getColor(R.color.red));
+        }
+
+        TextView data = view.findViewById(R.id.textViewLancamentoDataLista);
+        data.setText(lancamento.showDataFormatada());
 
         return view;
     }
+
 }

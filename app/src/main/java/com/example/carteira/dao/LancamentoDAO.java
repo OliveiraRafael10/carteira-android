@@ -54,8 +54,7 @@ public class LancamentoDAO {
                 int mes = cursor.getInt(6);
                 int ano = cursor.getInt(7);
 
-                lancamentos.add(new Lancamento(id, categoria, descricao, tipo, valor));
-
+                lancamentos.add(new Lancamento(id, categoria, descricao, tipo, valor, dia, mes, ano));
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -75,5 +74,13 @@ public class LancamentoDAO {
 
         cursor.close();
         return total;
+    }
+
+    public void limparLancamentos(Context context) {
+        DbHelper dbHelper = new DbHelper(context); // cria uma instância com o contexto
+        SQLiteDatabase db = dbHelper.getWritableDatabase(); // agora você pode chamar
+        db.delete("lancamentos", null, null);
+        db.delete("categorias", null, null);
+        db.close();
     }
 }

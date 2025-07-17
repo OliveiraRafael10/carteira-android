@@ -12,19 +12,17 @@ public class Lancamento {
     private int mes;
     private int ano;
 
-    public Lancamento(int id, String categoria, String descricao, String tipo, Double valor) {
+    public Lancamento(int id, String categoria, String descricao, String tipo, Double valor, int dia, int mes, int ano) {
         this.id = id;
         this.categoria = categoria;
         this.descricao = descricao;
         this.tipo = tipo;
         this.valor = valor;
-
-        Calendar calendar = Calendar.getInstance();
-
-        this.dia = calendar.get(Calendar.DAY_OF_MONTH);
-        this.mes = calendar.get(Calendar.MONTH) + 1;
-        this.ano = calendar.get(Calendar.YEAR);
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
     }
+
 
     public int getId() {
         return id;
@@ -59,15 +57,19 @@ public class Lancamento {
     }
 
     public String showDataFormatada() {
-        return String.format(
-                String.valueOf(this.dia)
-                        .concat("/")
-                        .concat(String.valueOf(this.mes))
-                        .concat("/")
-                        .concat(String.valueOf(this.ano)));
+        String dia = this.dia < 10 ? "0" + this.dia : String.valueOf(this.dia);
+        String mes = this.mes < 10 ? "0" + this.mes : String.valueOf(this.mes);
+        String dataFormatada = dia + "/" + mes + "/" + this.ano;
+
+        return dataFormatada;
     }
 
     public String showValor() {
-        return "R$ " .concat(String.valueOf(this.valor).replace(".", ","));
+        double valor = this.valor;
+        String valorFormatado = getTipo().equalsIgnoreCase("Saída")
+                ? String.format("- R$ %.2f", valor)
+                : String.format("R$ %.2f", valor);
+
+        return valorFormatado;
     }
 }

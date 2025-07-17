@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".util.CadastrarLancamentoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/txtView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria do lançamento"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinnerCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_weight=".7"
+                android:background="@drawable/input" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="@dimen/input_h"
+                android:layout_weight=".1" />
+
+            <ImageButton
+                android:id="@+id/imageButtonAddCategoria"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight=".1"
+                android:backgroundTint="@color/blue"
+                app:srcCompat="@drawable/list_bulleted_add_26" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/editTextDescricao"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/margin_top_input"
+            android:background="@drawable/input"
+            android:hint="@string/descricao"
+            android:padding="@dimen/padding_input" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_input"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonEntrada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/entrada" />
+
+            <RadioButton
+                android:id="@+id/radioButtonSaida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/saida" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editTextValor"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="@dimen/margin_top_input"
+            android:background="@drawable/input"
+            android:hint="@string/valor"
+            android:inputType="numberDecimal"
+            android:padding="@dimen/padding_input" />
+
+        <Button
+            android:id="@+id/buttonCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_input"
+            android:backgroundTint="#077DE2"
+            android:text="@string/cadastrar" />
+    </LinearLayout>
+
+</FrameLayout>
